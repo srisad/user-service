@@ -1,0 +1,24 @@
+package com.srisad.ems.dbservice.model;
+
+import lombok.Data;
+import javax.persistence.*;
+import java.util.Set;
+
+@Data
+@Entity
+@Table(name = "user_stories")
+public class UserStory {
+   
+   @Id
+   @GeneratedValue(strategy= GenerationType.AUTO)
+   private Long id;
+   private String name;
+   
+   @ManyToMany(cascade = { CascadeType.ALL })
+   @JoinTable(
+         name = "user_userstory",
+         joinColumns = { @JoinColumn(name = "story_id") },
+         inverseJoinColumns = { @JoinColumn(name = "user_id") }
+   )
+   Set<ScrumUser> users;
+}

@@ -1,0 +1,10 @@
+eureka:
+  client:
+    register-with-eureka: true
+    enabled: true
+    fetch-registry: true
+    eureka-service-url-poll-interval: 2000
+    serviceUrl:
+          defaultZone: http://localhost:8303/eureka/
+    
+    
